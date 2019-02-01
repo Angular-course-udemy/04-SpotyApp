@@ -20,8 +20,6 @@ export class CardsComponent{
       artistId = item.artists[0].id
     }
 
-    console.log(`id: ${artistId}`)
-
     this.router.navigate([ '/artist', artistId ])
   }
 

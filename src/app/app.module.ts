@@ -17,6 +17,7 @@ import { ROUTES } from './app.routes';
 // Services
 import { SpotifyService } from './services/spotify.service';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { DomsecurePipe } from './pipes/domsecure.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     NavbarComponent,
     NoimagePipe,
     CardsComponent,
-    LoadingComponent
+    LoadingComponent,
+    DomsecurePipe
   ],
   imports: [
     BrowserModule,

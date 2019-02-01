@@ -28,6 +28,12 @@ export class SpotifyService {
 
   goToArtist(id:string) {
     return this.getQuery(`artists/${ id }`)
-      .pipe(map( data => data))
+      // .pipe(map( data => data))
   }
+
+  getTopTracks(id:string) {
+    return this.getQuery(`artists/${ id }/top-tracks?country=ES`)
+      .pipe(map(data => data = data['tracks']))
+  }
+
 }

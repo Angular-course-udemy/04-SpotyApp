@@ -1,4 +1,5 @@
-<div class="container">
+<div *ngIf="loading" class="fadeIn">{{loading}}</div>
+<div *ngIf="!loading" class="container fadeIn">
   <div class="row">
     <div class="col-2">
       <img [src]="artist.images | noimage" class="img-thumbnail img-circle" alt="">
@@ -12,5 +13,33 @@
     <div class="col-4 text-right">
       <button routerLink="search" class="btn btn-outline-danger">Come back</button>
     </div>
+  </div>
+</div>
+
+<div class="row m-5">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Portada</th>
+          <th>Album</th>
+          <th>Canción</th>
+          <th>Vista previa</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let track of tracks">
+        <tr>
+          <td>
+            <img [src]="track.album.images | noimage" class="img-thumb">
+          </td>
+          <td>{{track.album.name}}</td>
+          <td>{{track.name}}</td>
+          <td>
+            <iframe [src]="track.uri | domsecure:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <!-- <audio [src]="track.preview_url" controls></audio> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
